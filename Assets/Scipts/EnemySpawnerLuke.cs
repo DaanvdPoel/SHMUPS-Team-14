@@ -8,6 +8,9 @@ public class EnemySpawnerLuke : MonoBehaviour
     [SerializeField] private int spawnCount = 2;
     [SerializeField] private GameObject enemyType;
 
+    private Vector3 enemySpawnPos;
+    private Quaternion enemySpawnRot;
+
     private float spawnTimer;
 
     void Start()
@@ -26,10 +29,18 @@ public class EnemySpawnerLuke : MonoBehaviour
         {
             if (spawnTimer <= 0)
             {
-                Instantiate(enemyType);
+                Position();
+                Instantiate(enemyType, enemySpawnPos, enemySpawnRot);
                 spawnTimer = spawnCooldown;
                 spawnCount--;
             }
         }
     }
+
+    private void Position()
+    {
+        enemySpawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        enemySpawnRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
+    }
+
 }

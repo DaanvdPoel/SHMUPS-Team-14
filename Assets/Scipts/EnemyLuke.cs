@@ -8,10 +8,15 @@ public class EnemyLuke : MonoBehaviour
     private float randomCooldown;
     private bool canMove;
     private float distance = 1;
-    private float speed = 10;
+    [SerializeField] private float speed = 10;
 
     private GameObject target;
+    private Vector3 enemyPos;
+    private Quaternion enemyRot;
     //private Playerclass player;
+
+    [SerializeField] private GameObject bullet;
+    private float shootTimer;
 
 
     void Start()
@@ -19,6 +24,8 @@ public class EnemyLuke : MonoBehaviour
         canMove = true;
         target = GameObject.FindGameObjectWithTag("Target");
         //player = GameObject.FindGameObjectWithTag("Player");
+
+        shootTimer = 0f;
     }
 
     void Update()
@@ -26,6 +33,16 @@ public class EnemyLuke : MonoBehaviour
         if (canMove == true)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, distance * (speed * Time.deltaTime));
+        }
+
+        if (shootTimer > 0)
+        {
+            shootTimer = shootTimer - Time.deltaTime;
+        }
+
+        if (shootTimer <= 0)
+        {
+            Shoot();
         }
     }
 
@@ -35,5 +52,13 @@ public class EnemyLuke : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Shoot()
+    {
+        enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        enemyRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
+        Instantiate(bullet, enemyPos, enemyRot);
+        shootTimer = 5;
     }
 }
