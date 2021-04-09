@@ -1,12 +1,11 @@
 using UnityEngine;
 
-s
 public class PlayerHealthController : MonoBehaviour
 {
     #region Properties
 
     
-    [SerializeField] private int healthInitial = 3;
+    [SerializeField] private int maxHealth = 3;
 
     
     private int healthCurrent;
@@ -24,7 +23,7 @@ public class PlayerHealthController : MonoBehaviour
   public void ResetHealth()
     {
       
-        healthCurrent = healthInitial;
+        healthCurrent = maxHealth;
     }
 
     #endregion
@@ -54,7 +53,7 @@ public class PlayerHealthController : MonoBehaviour
         healthCurrent += healAmount;
 
        
-        if (healthCurrent > healthInitial)
+        if (healthCurrent > maxHealth)
         {
             
             ResetHealth();
