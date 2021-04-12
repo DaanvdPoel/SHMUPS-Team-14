@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Resources/Models/Rocks/Steen 1.fbx.meta
+guid: 9a65ce43785361c46b2f6a3e53fc75a6
+=======
 guid: 4749850b750edd14fa73b7f428e31a88
+>>>>>>> Luca:Assets/Resources/Models/haai.fbx.meta
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []

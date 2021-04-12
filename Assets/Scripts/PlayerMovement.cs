@@ -19,19 +19,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") > 0)
         {
-            rb.AddForce(Vector3.left * speed);
+            rb.AddForce(Vector3.left * speed * Time.deltaTime);
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
-            rb.AddForce(Vector3.right * speed);
+            rb.AddForce(Vector3.right * speed * Time.deltaTime);
         }
         if (Input.GetAxis("Vertical") > 0)
         {
-            rb.AddForce(Vector3.back * speed);
+            rb.AddForce(Vector3.back * speed * Time.deltaTime);
         }
         if (Input.GetAxis("Vertical") < 0)
         {
-            rb.AddForce(Vector3.forward * speed);
+            rb.AddForce(Vector3.forward * speed * Time.deltaTime);
         }
     }
 
