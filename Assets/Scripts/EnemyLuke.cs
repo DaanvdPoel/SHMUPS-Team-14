@@ -14,8 +14,8 @@ public class EnemyLuke : MonoBehaviour
     private Vector3 enemyPos;
     private Quaternion enemyRot;
     //private Playerclass player;
-
     [SerializeField] private GameObject bullet;
+
     private float shootTimer;
 
 
@@ -43,14 +43,6 @@ public class EnemyLuke : MonoBehaviour
         if (shootTimer <= 0)
         {
             Shoot();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
         }
     }
 
