@@ -10,7 +10,6 @@ public class PlayerShoot : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && bullets.isPlaying == false)
@@ -28,8 +27,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("hit");
-            Destroy(other.gameObject);
+            Destroy(other);
         }
     }
 }
