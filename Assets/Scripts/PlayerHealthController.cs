@@ -1,6 +1,6 @@
 using UnityEngine;
 
-s
+
 public class PlayerHealthController : MonoBehaviour
 {
     #region Properties
