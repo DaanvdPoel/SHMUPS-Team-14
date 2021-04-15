@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
-  - AreaWarn
-  - Tentacle
+  - Enemy
   layers:
   - Default
   - TransparentFX
