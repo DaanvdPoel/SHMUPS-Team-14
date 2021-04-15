@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletLuke : MonoBehaviour
+public class EnemyBulletLukeCopy : MonoBehaviour
 {
     private float bulletSpeed = 7;
 
@@ -10,8 +10,8 @@ public class EnemyBulletLuke : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (bulletSpeed * Time.deltaTime));
-        
+        gameObject.transform.position += Vector3.back * bulletSpeed * Time.deltaTime;
+
         if (despawnTimer > 0)
         {
             despawnTimer = despawnTimer - Time.deltaTime;

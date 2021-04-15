@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLuke : MonoBehaviour
+public class Enemy1Luke : MonoBehaviour
 {
     private int health = 5;
     private bool canMove;

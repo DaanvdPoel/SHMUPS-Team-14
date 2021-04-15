@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLuke : MonoBehaviour
+public class EnemyThreeLuke : MonoBehaviour
 {
-    private int health = 5;
     private bool canMove;
     private float distance = 1;
-    [SerializeField] private float speed = 10;
+    [SerializeField] private int health;
+    [SerializeField] private float speed;
 
     private GameObject target;
     private Vector3 enemyPos;
