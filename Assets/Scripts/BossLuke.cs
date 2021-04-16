@@ -20,6 +20,8 @@ public class BossLuke : MonoBehaviour
     private Vector3 areaPos;
     private Quaternion rotation;
 
+    [SerializeField] private bool invert;
+
     void Start()
     {
         canWarn = true;
@@ -68,7 +70,7 @@ public class BossLuke : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("Bullet"))
         {
@@ -84,8 +86,18 @@ public class BossLuke : MonoBehaviour
 
     private void Warning()
     {
-        int randomX = Random.Range(-18, 18);
-        int randomZ = Random.Range(-5, -20);
+        if (invert == true)
+        {
+            randomX = Random.Range(-18, 18);
+            randomZ = Random.Range(5, 20);
+        }
+        else
+        {
+            randomX = Random.Range(-18, 18);
+            randomZ = Random.Range(-5, -20);
+        }
+
+
         tentPos = new Vector3(gameObject.transform.position.x + randomX, gameObject.transform.position.y, gameObject.transform.position.z + randomZ);
         warnPos = new Vector3(tentPos.x, tentPos.y - 3.5f, tentPos.z);
         Instantiate(warning, warnPos, rotation);
@@ -107,8 +119,17 @@ public class BossLuke : MonoBehaviour
 
     private void RandomizeArea()
     {
-        int randomX = Random.Range(-18, 18);
-        int randomZ = Random.Range(-5, -20);
+        if (invert == true)
+        {
+            randomX = Random.Range(-18, 18);
+            randomZ = Random.Range(5, 20);
+        }
+        else
+        {
+            randomX = Random.Range(-18, 18);
+            randomZ = Random.Range(-5, -20);
+        }
+
         areaPos = new Vector3(gameObject.transform.position.x + randomX, gameObject.transform.position.y - 3.5f, gameObject.transform.position.z + randomZ);
     }
 }

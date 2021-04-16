@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy1Luke : MonoBehaviour
 {
-    private int health = 5;
+    [SerializeField] private int health;
     private bool canMove;
     private float distance = 1;
     [SerializeField] private float speed = 10;
@@ -12,7 +12,6 @@ public class Enemy1Luke : MonoBehaviour
     private GameObject target;
     private Vector3 enemyPos;
     private Quaternion enemyRot;
-    //private Playerclass player;
 
     [SerializeField] private GameObject bullet;
     private float shootTimer;
@@ -21,8 +20,7 @@ public class Enemy1Luke : MonoBehaviour
     void Start()
     {
         canMove = true;
-        target = GameObject.FindGameObjectWithTag("Target");
-        //player = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("FarTarget");
 
         shootTimer = 0f;
     }
@@ -50,7 +48,7 @@ public class Enemy1Luke : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("Bullet"))
         {
