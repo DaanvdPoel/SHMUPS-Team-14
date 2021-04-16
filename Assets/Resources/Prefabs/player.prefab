@@ -991,8 +991,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16074337, y: 0.10499777, z: 0.2988508}
-  m_Center: {x: 0.0012639213, y: 0.017684784, z: 0.06201903}
+  m_Size: {x: 0.16074337, y: 0.10499777, z: 0.145037}
+  m_Center: {x: 0.0012639236, y: 0.017684784, z: -0.014887795}
 --- !u!54 &3477340804136361299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1007,7 +1007,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1429419793496069638
 MonoBehaviour:
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2e7cc237c4ce34cbc1f722b8112f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
+  speed: 150000
   maxSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &8716627665724629985
 MonoBehaviour:
@@ -1067,6 +1067,19 @@ Transform:
   m_Father: {fileID: 7789612812086332747}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1427579486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275206772004776308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c100eab6f30e77e49b082042729a2654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets: {fileID: 6275206772004776202}
 --- !u!1 &6669624745840247789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1699,37 @@ PrefabInstance:
       propertyPath: CollisionModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1139743440586109466, guid: 757806fa94bc7e649a5aef155e3231fa,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139743440586109466, guid: 757806fa94bc7e649a5aef155e3231fa,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139743440586109466, guid: 757806fa94bc7e649a5aef155e3231fa,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139743440586109466, guid: 757806fa94bc7e649a5aef155e3231fa,
+        type: 3}
+      propertyPath: TriggerModule.collisionShape0
+      value: 
+      objectReference: {fileID: 1044969181105259585, guid: dcaae17f7416d6640af396a0fdb25f69,
+        type: 3}
+    - target: {fileID: 1139743440586109467, guid: 757806fa94bc7e649a5aef155e3231fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5bf924b4c9c262448b9238b5e12ce9e, type: 2}
+    - target: {fileID: 1139743440586109467, guid: 757806fa94bc7e649a5aef155e3231fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5bf924b4c9c262448b9238b5e12ce9e, type: 2}
     - target: {fileID: 1139743440586109540, guid: 757806fa94bc7e649a5aef155e3231fa,
         type: 3}
       propertyPath: m_Name
@@ -1694,13 +1738,25 @@ PrefabInstance:
     - target: {fileID: 1139743440586109540, guid: 757806fa94bc7e649a5aef155e3231fa,
         type: 3}
       propertyPath: m_TagString
-      value: Bullet
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757806fa94bc7e649a5aef155e3231fa, type: 3}
+--- !u!1 &6275206772004776308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1139743440586109540, guid: 757806fa94bc7e649a5aef155e3231fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6397132171748776720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6275206772004776201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1139743440586109465, guid: 757806fa94bc7e649a5aef155e3231fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6397132171748776720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6275206772004776202 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1139743440586109466, guid: 757806fa94bc7e649a5aef155e3231fa,
     type: 3}
   m_PrefabInstance: {fileID: 6397132171748776720}
   m_PrefabAsset: {fileID: 0}
