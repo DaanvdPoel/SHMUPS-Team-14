@@ -10,10 +10,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<GameObject> chunkList = new List<GameObject>();
     [SerializeField] private Vector3 firstChunkSpawnLocation;
 
-    [Header("Camera Variable")]
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private Rect screenBounds = new Rect(0, 0, 1, 1f);
-
+    [SerializeField] private float zLocation;
     [Header("Timer")]
     [SerializeField] private float timer;
     private float time;
@@ -41,10 +38,11 @@ public class MapManager : MonoBehaviour
 
     private void SpawnFirstChunk()
     {
-        int random = Random.Range(0, chunks.Length - 1);
+        int random = Random.Range(0, chunks.Length);
         GameObject temp = chunks[random];
         GameObject GO = Instantiate(temp);
 
+        Debug.Log(GO);
         GO.transform.position = firstChunkSpawnLocation;
 
         GO.name = "Chunk " + random;
@@ -57,7 +55,7 @@ public class MapManager : MonoBehaviour
 
     private void SpawnChunk()
     {
-        int random = Random.Range(0, chunks.Length - 1);
+        int random = Random.Range(0, chunks.Length);
         GameObject temp = chunks[random];
         GameObject GO = Instantiate(temp);
 
@@ -78,13 +76,12 @@ public class MapManager : MonoBehaviour
         {
             if (chunkList[i] != null)
             {
-                Vector3 viewPortPosition = mainCamera.WorldToViewportPoint(chunkList[i].transform.position);
 
-                if (viewPortPosition.y > screenBounds.y)
+                if (chunkList[i].transform.position.z >= zLocation)
                 {
+                    Debug.Log("despawning " + chunkList[i].name);
                     DestroyImmediate(chunkList[i]);
                     chunkList.Remove(chunkList[i--]);
-                    Debug.Log("despawning " + chunkList[i].name);
                     continue;
                 }
             }
