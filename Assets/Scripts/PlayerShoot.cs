@@ -5,10 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private ParticleSystem bullets;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private AudioManager audioManager;
 
     void Update()
     {       
@@ -27,13 +24,10 @@ public class PlayerShoot : MonoBehaviour
         {
             bullets.Stop();
         }
-    }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("Enemy"))
+        if (Input.GetMouseButton(0))
         {
-            Destroy(other);
+            audioManager.PlaySound(0);
         }
     }
 }
