@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Target
   - Enemy
+  - Tentacle
+  - AreaWarn
+  - Bullet
+  - FarTarget
   layers:
   - Default
   - TransparentFX

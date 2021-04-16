@@ -5,31 +5,29 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private ParticleSystem bullets;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private AudioManager audioManager;
 
-    // Update is called once per frame
     void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && bullets.isPlaying == false)
-        {
-            Shoot();
-        }
+    {       
+        Shoot();       
     }
 
     private void Shoot()
     {
-        bullets.Play();
-    }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("Enemy"))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("hit");
-            Destroy(other.gameObject);
+            bullets.Play();
+            bullets.loop = true;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            bullets.Stop();
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            audioManager.PlaySound(0);
         }
     }
 }
