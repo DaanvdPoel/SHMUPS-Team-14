@@ -40,7 +40,7 @@ public class EnemySpawnerLuke : MonoBehaviour
     private void Position()
     {
         enemySpawnPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        enemySpawnRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
+        enemySpawnRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y + 180, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
     }
 
 }

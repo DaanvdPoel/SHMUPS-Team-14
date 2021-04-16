@@ -11,16 +11,22 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && bullets.isPlaying == false)
-        {
-            Shoot();
-        }
+    {       
+        Shoot();       
     }
 
     private void Shoot()
     {
-        bullets.Play();
+        if (Input.GetMouseButtonDown(0))
+        {
+            bullets.Play();
+            bullets.loop = true;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            bullets.Stop();
+        }
     }
 
     private void OnParticleCollision(GameObject other)
