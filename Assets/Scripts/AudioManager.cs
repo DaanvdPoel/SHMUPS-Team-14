@@ -41,9 +41,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBossFightMusic()
     {
-        backgroundSource.Stop();
         backgroundSource.PlayOneShot(backgroundMusicClips[backgroundMusicClips.Length - 1]);
-        backgroundSource.Play();
         backgroundSource.loop = true;
         Debug.Log("Now Playing bossfightmusic");
     }

@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private MapManager mapManager;
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
