@@ -15,6 +15,8 @@ public class MapManager : MonoBehaviour
     [SerializeField] private float timer;
     private float time;
 
+    public bool bossFight = false;
+
 
     void Start()
     {
@@ -24,14 +26,18 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-
-        time = time + Time.deltaTime;
+        if (bossFight == false)
+        {
+            time = time + Time.deltaTime;
+        }
 
         if(time >= timer)
         {
             SpawnChunk();
             time = 0;
         }
+
+        StopMoving();
 
         DeSpawnChunks();
     }
@@ -88,6 +94,18 @@ public class MapManager : MonoBehaviour
             if (chunkList[i] == null)
             {
                 chunkList.Remove(chunkList[i--]);
+            }
+        }
+    }
+
+    private void StopMoving()
+    {
+        if (bossFight == true)
+        {
+            for (int i = 0; i < chunkList.Count; i++)
+            {
+                Rigidbody rb = chunkList[i].GetComponent<Rigidbody>();
+                rb.velocity = new Vector3(0, 0, 0);
             }
         }
     }
