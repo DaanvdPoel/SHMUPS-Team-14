@@ -46,5 +46,4 @@ MonoBehaviour:
   spawnCooldown: 1
   delayTime: 1
   spawnCount: 1
-  enemyType: {fileID: 3296920429902741376, guid: 5cb72abfd1860784292e3fd7221b7a68,
-    type: 3}
+  enemyType: {fileID: 0}

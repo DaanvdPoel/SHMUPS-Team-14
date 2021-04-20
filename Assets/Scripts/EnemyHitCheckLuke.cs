@@ -8,7 +8,7 @@ public class EnemyHitCheckLuke : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            GetComponentInParent<Enemy1Luke>().TakeDamage(-1);
+            GetComponentInParent<EnemyScriptLuke>().TakeDamage(-1);
         }
     }
 }

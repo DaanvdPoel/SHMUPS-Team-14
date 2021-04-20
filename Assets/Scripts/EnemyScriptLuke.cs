@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemyScriptLuke : MonoBehaviour
 {
+    // NIET AANKOMEN!!!
+    // ik meen het, niet aankomen, als je dit wilt gebruiken maak je gewoon een kopie van dit scrip
+    // yours sincerely,
+    // Luke
+    
     [SerializeField] private int health;
     private bool canMove;
     private float distance = 1;
@@ -13,12 +18,12 @@ public class EnemyScriptLuke : MonoBehaviour
     private Vector3 enemyPos;
     private Quaternion enemyRot;
 
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private ParticleSystem bullet;
+    private float timer;
     private float shootTimer;
 
     private float randomX;
     private float randomZ;
-    private float timer;
     private Vector3 offset;
 
 
@@ -76,6 +81,8 @@ public class EnemyScriptLuke : MonoBehaviour
 
     private void Shoot()
     {
+        bullet.Play();
+
         //enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         //enemyRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
         //Instantiate(bullet, enemyPos, enemyRot);
