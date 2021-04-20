@@ -13,6 +13,7 @@ public class BossLuke : MonoBehaviour
     private float areaTimer;
     private int randomX;
     private int randomZ;
+    public int tentacles;
     private bool canWarn;
     private bool canWarnArea;
     private Vector3 tentPos;
@@ -27,6 +28,7 @@ public class BossLuke : MonoBehaviour
         canWarn = true;
         summonTimer = 5;
         areaTimer = 7;
+        tentacles = 0;
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class BossLuke : MonoBehaviour
             summonTimer = summonTimer - Time.deltaTime;
         }
 
-        if (summonTimer <= 5 && canWarn == true)
+        if (summonTimer <= 5 && canWarn == true && tentacles < 3)
         {
             Warning();
             canWarn = false;
@@ -80,8 +82,12 @@ public class BossLuke : MonoBehaviour
 
     private void Summon()
     {
-        rotation = new Quaternion(0, 0, 0, 0);
-        Instantiate(tentacle, tentPos, rotation);
+        if (tentacles <= 3)
+        {
+            rotation = new Quaternion(0, 0, 0, 0);
+            Instantiate(tentacle, tentPos, rotation);
+            tentacles++;
+        }
     }
 
     private void Warning()
@@ -131,5 +137,10 @@ public class BossLuke : MonoBehaviour
         }
 
         areaPos = new Vector3(gameObject.transform.position.x + randomX, gameObject.transform.position.y - 3.5f, gameObject.transform.position.z + randomZ);
+    }
+
+    public void Tentacle()
+    {
+        tentacles--;
     }
 }

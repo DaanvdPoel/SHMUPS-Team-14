@@ -28,12 +28,4 @@ public class PlayerShoot : MonoBehaviour
             bullets.Stop();
         }
     }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Destroy(other);
-        }
-    }
 }

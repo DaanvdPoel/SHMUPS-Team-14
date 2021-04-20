@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Luke : MonoBehaviour
+public class EnemyScriptLuke : MonoBehaviour
 {
     [SerializeField] private int health;
     private bool canMove;

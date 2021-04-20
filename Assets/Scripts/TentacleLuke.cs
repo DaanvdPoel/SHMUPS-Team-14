@@ -12,9 +12,11 @@ public class TentacleLuke : MonoBehaviour
     [SerializeField] private GameObject bullet;
     private float shootTimer;
 
+    private GameObject boss;
+
     void Start()
     {
-        
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     void Update()
@@ -31,11 +33,12 @@ public class TentacleLuke : MonoBehaviour
 
         if (health <= 0)
         {
+            boss.GetComponent<BossLuke>().Tentacle();
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("Bullet"))
         {
