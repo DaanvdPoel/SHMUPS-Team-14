@@ -29,23 +29,22 @@ public class AudioManager : MonoBehaviour
     //Doe alle backgroundmusic in de backgroundMusicClips array. het laatste muziekje in de array word gebruikt voor de boss fight.
     public void BackGroundMusic()
     {
-        int random = Random.Range(0, backgroundMusicClips.Length - 1);
-
-        //if (bossFightMusic == true && backgroundMusicClips[random].name != backgroundMusicClips[backgroundMusicClips.Length].name)
-        //{
-        //    if (backgroundSource.isPlaying == false)
-        //    {
-        //        backgroundSource.PlayOneShot(backgroundMusicClips[backgroundMusicClips.Length - 1]);
-        //        backgroundSource.loop = true;
-        //        Debug.Log("Now Playing: " + backgroundMusicClips[random].name);
-        //    }
-        //}
+        int random = Random.Range(0, backgroundMusicClips.Length - 2);
 
         if (backgroundSource.isPlaying == false && bossFightMusic == false)
         {
             backgroundSource.PlayOneShot(backgroundMusicClips[random]);
             backgroundSource.loop = false;
-            Debug.Log("Now Playing: "+ backgroundMusicClips[random].name);
+            Debug.Log("Now Playing: " + backgroundMusicClips[random].name);
         }
+    }
+
+    public void PlayBossFightMusic()
+    {
+        backgroundSource.Stop();
+        backgroundSource.PlayOneShot(backgroundMusicClips[backgroundMusicClips.Length - 1]);
+        backgroundSource.Play();
+        backgroundSource.loop = true;
+        Debug.Log("Now Playing bossfightmusic");
     }
 }
