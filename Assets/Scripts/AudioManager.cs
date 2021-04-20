@@ -20,7 +20,10 @@ public class AudioManager : MonoBehaviour
     //roep deze funsie in een andere script op en geeft hem het array nummer van de audio clip die je wilt afspelen.
     public void PlaySound(int audioClip)
     {
-        audioSource.PlayOneShot(audioClips[audioClip]);
+        if (audioSource.isPlaying == false)
+        {
+            audioSource.PlayOneShot(audioClips[audioClip]);
+        }
     }
 
     //Doe alle backgroundmusic in de backgroundMusicClips array. het laatste muziekje in de array word gebruikt voor de boss fight.
@@ -28,15 +31,15 @@ public class AudioManager : MonoBehaviour
     {
         int random = Random.Range(0, backgroundMusicClips.Length - 1);
 
-        if (bossFightMusic == true && backgroundMusicClips[random].name != backgroundMusicClips[backgroundMusicClips.Length].name)
-        {
-            if (backgroundSource.isPlaying == false)
-            {
-                backgroundSource.PlayOneShot(backgroundMusicClips[backgroundMusicClips.Length - 1]);
-                backgroundSource.loop = true;
-                Debug.Log("Now Playing: " + backgroundMusicClips[random].name);
-            }
-        }
+        //if (bossFightMusic == true && backgroundMusicClips[random].name != backgroundMusicClips[backgroundMusicClips.Length].name)
+        //{
+        //    if (backgroundSource.isPlaying == false)
+        //    {
+        //        backgroundSource.PlayOneShot(backgroundMusicClips[backgroundMusicClips.Length - 1]);
+        //        backgroundSource.loop = true;
+        //        Debug.Log("Now Playing: " + backgroundMusicClips[random].name);
+        //    }
+        //}
 
         if (backgroundSource.isPlaying == false && bossFightMusic == false)
         {

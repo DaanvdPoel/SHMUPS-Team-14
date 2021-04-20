@@ -5,10 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private ParticleSystem bullets;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private AudioManager audioManager;
 
     void Update()
     {       
@@ -26,6 +23,11 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             bullets.Stop();
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            audioManager.PlaySound(0);
         }
     }
 }
