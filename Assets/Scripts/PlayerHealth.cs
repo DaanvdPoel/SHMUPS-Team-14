@@ -1,64 +1,55 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealthController : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    #region Properties
 
-    
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int maxHealth;
 
-    
+
     private int healthCurrent;
 
-    #endregion
 
-    #region Initialisation methods
-
-    
     void Start()
     {
-        
         ResetHealth();
     }
-  public void ResetHealth()
+    public void ResetHealth()
     {
-      
         healthCurrent = maxHealth;
     }
 
-    #endregion
-
-    #region Gameplay methods
-
-    
     public void TakeDamage(int damageAmount)
     {
-       
         healthCurrent -= damageAmount;
 
-       
         if (healthCurrent <= 0)
         {
-            
             Destroy(gameObject);
-
-            
         }
     }
 
-  
     public void Heal(int healAmount)
     {
-       
         healthCurrent += healAmount;
 
-       
         if (healthCurrent > maxHealth)
         {
-            
             ResetHealth();
         }
     }
 
-    #endregion
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Tentacle"))
+        {
+            TakeDamage(3);
+        }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        TakeDamage(10);
+    }
 }
