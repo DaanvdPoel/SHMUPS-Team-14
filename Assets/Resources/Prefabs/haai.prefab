@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 464753884197362116}
   - component: {fileID: 7753951130645002043}
   m_Layer: 0
-  m_Name: Haai
+  m_Name: haai
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1039,6 +1039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: shark gubn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859456354534799297, guid: 5c73fbd0fb2682342a6775533d903036,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 6809959530264456768, guid: 5c73fbd0fb2682342a6775533d903036,
         type: 3}

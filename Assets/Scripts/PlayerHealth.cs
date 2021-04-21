@@ -50,6 +50,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        TakeDamage(10);
+        if (other.CompareTag("Bullet"))
+        {
+            TakeDamage(10);
+        }
     }
 }

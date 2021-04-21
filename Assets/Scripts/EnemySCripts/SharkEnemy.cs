@@ -49,12 +49,12 @@ public class SharkEnemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Bullet"))
+        if (!other.CompareTag("Bullet"))
         {
             health = health - 10;
         }
     }
-
+    
     private void Shoot()
     {
         bullet.Play();
