@@ -106,3 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3dcfa54de0bcc448ef500dfccf7697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tentacle: {fileID: 6889597233110721997, guid: 675cd7d46a8293b44936f8b09a9a4063,
+    type: 3}

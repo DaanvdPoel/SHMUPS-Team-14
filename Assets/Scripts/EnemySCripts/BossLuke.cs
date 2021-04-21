@@ -9,6 +9,11 @@ public class BossLuke : MonoBehaviour
     [SerializeField] private GameObject warning;
     [SerializeField] private GameObject warningArea;
 
+    [SerializeField] private int minWidth;
+    [SerializeField] private int maxWidth;
+    [SerializeField] private int minLength;
+    [SerializeField] private int maxLength;
+
     private float summonTimer;
     private float areaTimer;
     private int randomX;
@@ -94,13 +99,13 @@ public class BossLuke : MonoBehaviour
     {
         if (invert == true)
         {
-            randomX = Random.Range(-18, 18);
-            randomZ = Random.Range(5, 20);
+            randomX = Random.Range(minWidth, maxWidth);
+            randomZ = Random.Range(minLength, maxLength);
         }
         else
         {
-            randomX = Random.Range(-18, 18);
-            randomZ = Random.Range(-5, -20);
+            randomX = Random.Range(minWidth, maxWidth);
+            randomZ = Random.Range(-minLength, -maxLength);
         }
 
 

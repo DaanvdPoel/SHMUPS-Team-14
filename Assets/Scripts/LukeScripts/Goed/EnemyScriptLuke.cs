@@ -86,8 +86,7 @@ public class EnemyScriptLuke : MonoBehaviour
         //enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         //enemyRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
         //Instantiate(bullet, enemyPos, enemyRot);
-        //shootTimer = 5;
-        Debug.Log("Pew");
+        shootTimer = 5;
     }
 
     private void RandomizePosition()

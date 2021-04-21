@@ -9,7 +9,7 @@ public class TentacleLuke : MonoBehaviour
     private Vector3 enemyPos;
     private Quaternion enemyRot;
 
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private ParticleSystem bullet;
     private float shootTimer;
 
     private GameObject boss;
@@ -17,6 +17,7 @@ public class TentacleLuke : MonoBehaviour
     void Start()
     {
         boss = GameObject.FindGameObjectWithTag("Boss");
+        shootTimer = 5;
     }
 
     void Update()
@@ -48,9 +49,13 @@ public class TentacleLuke : MonoBehaviour
 
     private void Shoot()
     {
-        enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        enemyRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);        
-        Instantiate(bullet, enemyPos, enemyRot);
-        shootTimer = 5;
+        //enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        //enemyRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);        
+        //Instantiate(bullet, enemyPos, enemyRot);
+        //shootTimer = 5;
+
+        bullet.Play();
+
+        Debug.Log("pew");
     }
 }
