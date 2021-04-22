@@ -10,6 +10,11 @@ public class SpecialBullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float despawnTimer;
 
+    [SerializeField] private ParticleSystem parOne;
+    [SerializeField] private ParticleSystem parTwo;
+    [SerializeField] private ParticleSystem parThree;
+
+
     void Start()
     {
         canMove = true;
@@ -31,12 +36,28 @@ public class SpecialBullet : MonoBehaviour
 
         if (despawnTimer <= 0)
         {
-            Destroy(gameObject);
+            Explode();
+            canMove = false;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Destroy(gameObject);
+    }
+
+    private void Explode()
+    {
+        StartCoroutine(Explosion());
+    }
+
+    private IEnumerator Explosion()
+    {
+        parThree.Play();
+        yield return new WaitForSeconds(1f);
+        parOne.Play();
+        parTwo.Play();
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 }
