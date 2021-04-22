@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class EnemyScriptLuke : MonoBehaviour
 {
-    // NIET AANKOMEN!!!
-    // ik meen het, niet aankomen, als je dit wilt gebruiken maak je gewoon een kopie van dit scrip
-    // yours sincerely,
-    // Luke
-    
     [SerializeField] private int health;
     private bool canMove;
     private float distance = 1;
