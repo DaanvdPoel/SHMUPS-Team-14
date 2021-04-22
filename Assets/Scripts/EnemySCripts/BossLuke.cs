@@ -8,6 +8,7 @@ public class BossLuke : MonoBehaviour
     [SerializeField] private GameObject tentacle;
     [SerializeField] private GameObject warning;
     [SerializeField] private GameObject warningArea;
+    [SerializeField] private ParticleSystem bossBurst;
 
     [SerializeField] private int minWidth;
     [SerializeField] private int maxWidth;
@@ -16,6 +17,7 @@ public class BossLuke : MonoBehaviour
 
     private float summonTimer;
     private float areaTimer;
+    private float burstTimer;
     private int randomX;
     private int randomZ;
     public int tentacles;
@@ -34,12 +36,23 @@ public class BossLuke : MonoBehaviour
         canWarn = true;
         summonTimer = 5;
         areaTimer = 7;
+        burstTimer = 3;
         tentacles = 0;
         gameManager = FindObjectOfType<GameManagerLuke>();
     }
 
     void Update()
     {
+        if (burstTimer <= 0)
+        {
+            Burst();
+            burstTimer = 25;
+        }
+        else
+        {
+            burstTimer = burstTimer - Time.deltaTime;
+        }
+
         if (summonTimer < 0)
         {
             Summon();
@@ -135,16 +148,21 @@ public class BossLuke : MonoBehaviour
     {
         if (invert == true)
         {
-            randomX = Random.Range(-18, 18);
-            randomZ = Random.Range(5, 20);
+            randomX = Random.Range(minWidth, maxWidth);
+            randomZ = Random.Range(minLength, maxLength);
         }
         else
         {
-            randomX = Random.Range(-18, 18);
-            randomZ = Random.Range(-5, -20);
+            randomX = Random.Range(minWidth, maxWidth);
+            randomZ = Random.Range(-minLength, -maxLength);
         }
 
         areaPos = new Vector3(gameObject.transform.position.x + randomX, gameObject.transform.position.y - 3.5f, gameObject.transform.position.z + randomZ);
+    }
+
+    private void Burst()
+    {
+        bossBurst.Play();
     }
 
     public void Tentacle()
