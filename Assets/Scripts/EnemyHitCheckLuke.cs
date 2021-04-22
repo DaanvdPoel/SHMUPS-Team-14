@@ -6,9 +6,9 @@ public class EnemyHitCheckLuke : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Bullet"))
+        if (!other.CompareTag("Bullet"))
         {
-            GetComponentInParent<EnemyScriptLuke>().TakeDamage(-1);
+            GetComponentInParent<EnemyScriptLuke>().TakeDamage(10);
         }
     }
 }

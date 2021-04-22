@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerDiedScreen;
     [SerializeField] private GameObject playerNextLevelScreen;
     [SerializeField] private GameObject playerWinScreen;
+    [SerializeField] private GameObject fadein;
 
     [Header("References")]
     [SerializeField] private AudioManager audioManager;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void SpawnBoss()
+    public void SpawnBoss()
     {
         if (boss != null)
         {
@@ -47,12 +48,18 @@ public class GameManager : MonoBehaviour
             audioManager.PlayBossFightMusic();
         }else if(boss == null)
         {
-            Invoke("LoadNextLevel", 3f);
+            fadein.SetActive(true);
+            Invoke("LoadNextLevel", 4f);
         }
     }
 
-    private void LoadNextLevel()
+    public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

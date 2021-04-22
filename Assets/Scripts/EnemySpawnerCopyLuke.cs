@@ -64,7 +64,7 @@ public class EnemySpawnerCopyLuke : MonoBehaviour
     private void SetNewPosition()
     {
         transform.position = new Vector3(target.transform.position.x - randomPos, target.transform.position.y, target.transform.position.z);
-        randomPos = Random.Range(-30, 30);
+        randomPos = Random.Range(-100, 100);
         transform.position = new Vector3(target.transform.position.x + randomPos, target.transform.position.y, target.transform.position.z);
     }
 }

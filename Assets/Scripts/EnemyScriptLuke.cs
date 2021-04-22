@@ -20,6 +20,9 @@ public class EnemyScriptLuke : MonoBehaviour
     private Quaternion enemyRot;
 
     [SerializeField] private ParticleSystem bullet;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int attackSound;
+
     private float timer;
     private float shootTimer;
 
@@ -27,6 +30,10 @@ public class EnemyScriptLuke : MonoBehaviour
     private float randomZ;
     private Vector3 offset;
 
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Start()
     {
@@ -72,16 +79,12 @@ public class EnemyScriptLuke : MonoBehaviour
         transform.Rotate(0, 0 - 50 * Time.deltaTime, 0);
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("Bullet"))
-        {
-            TakeDamage(-1);
-        }
-    }
-
     private void Shoot()
     {
+        if(attackSound >-0)
+        {
+            audioManager.PlaySound(attackSound);
+        }
         bullet.Play();
 
         //enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
@@ -103,6 +106,14 @@ public class EnemyScriptLuke : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health = health + damage;
+        health = health - damage;
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (!other.CompareTag("Bullet"))
+        {
+            TakeDamage(10);
+        }
     }
 }
