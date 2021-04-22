@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699449821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.063, z: -2.172}
+  m_LocalPosition: {x: 0, y: -0.342, z: -3.359}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1906440811258360660}
@@ -184,8 +184,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.4550004, y: 1, z: 6.171566}
+  m_Center: {x: -0.22175285, y: 0, z: -2.5857828}
 --- !u!114 &1637648250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 5330560657462061202}
   - component: {fileID: 6962476963846659915}
   m_Layer: 0
-  m_Name: PlayerLuke
+  m_Name: Player
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 1242669681163954670}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.18191576, y: 8.384558, z: -20.015644}
-  m_LocalScale: {x: 31.412, y: 31.412, z: 31.412}
+  m_LocalScale: {x: 25.242369, y: 25.242369, z: 25.242369}
   m_Children:
   - {fileID: 2142202872}
   - {fileID: 1699449822}
@@ -249,8 +249,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16074337, y: 0.10499777, z: 0.145037}
-  m_Center: {x: 0.0012639236, y: 0.017684784, z: -0.014887795}
+  m_Size: {x: 0.6337733, y: 0.2207856, z: 0.66984904}
+  m_Center: {x: -0.0048897667, y: 0.07557876, z: -0.27729377}
 --- !u!54 &7669166308307035079
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -293,7 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7344de8862891448b3fd2aa9741a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 100
+  slider: {fileID: 0}
 --- !u!1001 &137861573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -490,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 1139743440586109540, guid: 757806fa94bc7e649a5aef155e3231fa,
         type: 3}
       propertyPath: m_TagString
-      value: Bullet
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757806fa94bc7e649a5aef155e3231fa, type: 3}

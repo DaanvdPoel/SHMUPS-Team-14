@@ -51,7 +51,7 @@ public class SharkEnemy : MonoBehaviour
     {
         if (!other.CompareTag("Bullet"))
         {
-            health = health - 10;
+            health = health - 10;1
         }
     }
     

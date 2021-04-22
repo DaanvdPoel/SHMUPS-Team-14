@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] private int maxHealth;
-
+    [SerializeField] private Slider slider;
 
     private int healthCurrent;
 
@@ -14,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         ResetHealth();
+        slider.maxValue = maxHealth;
+        slider.value = slider.maxValue;
     }
     public void ResetHealth()
     {
@@ -23,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         healthCurrent -= damageAmount;
+        slider.value = healthCurrent;
 
         if (healthCurrent <= 0)
         {
@@ -33,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int healAmount)
     {
         healthCurrent += healAmount;
-
+        slider.value = healthCurrent;
         if (healthCurrent > maxHealth)
         {
             ResetHealth();

@@ -1090,6 +1090,11 @@ PrefabInstance:
       propertyPath: InitialModule.startSpeed.scalar
       value: 38
       objectReference: {fileID: 0}
+    - target: {fileID: 6809959530264456773, guid: 5c73fbd0fb2682342a6775533d903036,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c73fbd0fb2682342a6775533d903036, type: 3}
 --- !u!4 &1629519667072807185 stripped

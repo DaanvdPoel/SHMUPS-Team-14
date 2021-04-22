@@ -46,6 +46,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioClips:
   - {fileID: 8300000, guid: 74ec108e71331504e9aa4bd44c2126aa, type: 3}
+  - {fileID: 8300000, guid: 32e0d3c2089a37547b0e4f757bfef985, type: 3}
   backgroundSource: {fileID: 0}
   backgroundMusicClips:
   - {fileID: 8300000, guid: 5ad2e1169163b2f41b8a7e01a31c0708, type: 3}
