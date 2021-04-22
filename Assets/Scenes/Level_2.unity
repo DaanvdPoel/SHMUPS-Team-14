@@ -721,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 1906440811258360660, guid: e3bb673f0ffc8e64dbdb8d6ef94e76b2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -33.1
+      value: -40.5
       objectReference: {fileID: 0}
     - target: {fileID: 1906440811258360660, guid: e3bb673f0ffc8e64dbdb8d6ef94e76b2,
         type: 3}
@@ -778,6 +778,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 6962476963846659915, guid: e3bb673f0ffc8e64dbdb8d6ef94e76b2,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2065339093}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3bb673f0ffc8e64dbdb8d6ef94e76b2, type: 3}
 --- !u!1001 &722501157
@@ -896,6 +901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeathScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077262516011002362, guid: 9168dd5220bb70c4a9479e3eb54b3999,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9168dd5220bb70c4a9479e3eb54b3999, type: 3}
@@ -1787,6 +1797,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065339093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2137312393848043945, guid: 215d8bf9905131c499d01f3c0218a939,
+    type: 3}
+  m_PrefabInstance: {fileID: 3927752222442139694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04b0a5bf05ab224ea9172abec746dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2083695275
 PrefabInstance:
   m_ObjectHideFlags: 0

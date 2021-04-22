@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         playerDiedScreen.SetActive(true);
+        audioManager.StopPlayingBackgroundMusic();
         audioManager.PlayPlayerSound(3);
         Invoke("ReloadScene", 5f);
     }

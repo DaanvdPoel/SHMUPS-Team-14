@@ -18,6 +18,8 @@ public class BossLuke : MonoBehaviour
 
     [SerializeField] private Slider bossHPSlider;
 
+    [SerializeField] private GameManager gameManager;
+
     private float summonTimer;
     private float areaTimer;
     private float burstTimer;
@@ -30,7 +32,7 @@ public class BossLuke : MonoBehaviour
     private Vector3 warnPos;
     private Vector3 areaPos;
     private Quaternion rotation;
-    private GameManagerLuke gameManager;
+    private GameManagerLuke gameManagerLuke;
 
     [SerializeField] private bool invert;
 
@@ -42,7 +44,8 @@ public class BossLuke : MonoBehaviour
         areaTimer = 7;
         burstTimer = 3;
         tentacles = 0;
-        gameManager = FindObjectOfType<GameManagerLuke>();
+        gameManagerLuke = FindObjectOfType<GameManagerLuke>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
