@@ -10,6 +10,7 @@ TagManager:
   - AreaWarn
   - Bullet
   - FarTarget
+  - SpawnerTarget
   layers:
   - Default
   - TransparentFX
