@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            audioManager.PlaySound(0);
+            audioManager.PlayPlayerSound(0);
         }
     }
 }

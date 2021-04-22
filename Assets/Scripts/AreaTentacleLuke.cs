@@ -10,7 +10,7 @@ public class AreaTentacleLuke : MonoBehaviour
     }
     private IEnumerator DestroyTentacle()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }

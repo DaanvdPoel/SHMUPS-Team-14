@@ -46,5 +46,11 @@ MonoBehaviour:
   bossTimer: 0
   boss: {fileID: 0}
   bossHealthbarUI: {fileID: 0}
+  enemySpawners: []
+  playerDiedScreen: {fileID: 0}
+  playerNextLevelScreen: {fileID: 0}
+  playerWinScreen: {fileID: 0}
+  fadein: {fileID: 0}
+  progressbar: {fileID: 0}
   audioManager: {fileID: 0}
   mapManager: {fileID: 0}

@@ -1,21 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossLuke : MonoBehaviour
 {
-    [SerializeField] private int health;
+    [SerializeField] private float health;
     [SerializeField] private GameObject tentacle;
     [SerializeField] private GameObject warning;
     [SerializeField] private GameObject warningArea;
+    [SerializeField] private ParticleSystem bossBurst;
 
     [SerializeField] private int minWidth;
     [SerializeField] private int maxWidth;
     [SerializeField] private int minLength;
     [SerializeField] private int maxLength;
 
+    [SerializeField] private Slider bossHPSlider;
+
     private float summonTimer;
     private float areaTimer;
+    private float burstTimer;
     private int randomX;
     private int randomZ;
     public int tentacles;
@@ -25,19 +30,33 @@ public class BossLuke : MonoBehaviour
     private Vector3 warnPos;
     private Vector3 areaPos;
     private Quaternion rotation;
+    private GameManagerLuke gameManager;
 
     [SerializeField] private bool invert;
 
     void Start()
     {
+        bossHPSlider.maxValue = health;
         canWarn = true;
         summonTimer = 5;
         areaTimer = 7;
+        burstTimer = 3;
         tentacles = 0;
+        gameManager = FindObjectOfType<GameManagerLuke>();
     }
 
     void Update()
     {
+        if (burstTimer <= 0)
+        {
+            Burst();
+            burstTimer = 25;
+        }
+        else
+        {
+            burstTimer = burstTimer - Time.deltaTime;
+        }
+
         if (summonTimer < 0)
         {
             Summon();
@@ -73,15 +92,15 @@ public class BossLuke : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            gameManager.Win();
         }
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Bullet"))
+        if (!other.CompareTag("Bullet"))
         {
-            health--;
+            TakeDamage(1);
         }
     }
 
@@ -132,20 +151,31 @@ public class BossLuke : MonoBehaviour
     {
         if (invert == true)
         {
-            randomX = Random.Range(-18, 18);
-            randomZ = Random.Range(5, 20);
+            randomX = Random.Range(minWidth, maxWidth);
+            randomZ = Random.Range(minLength, maxLength);
         }
         else
         {
-            randomX = Random.Range(-18, 18);
-            randomZ = Random.Range(-5, -20);
+            randomX = Random.Range(minWidth, maxWidth);
+            randomZ = Random.Range(-minLength, -maxLength);
         }
 
         areaPos = new Vector3(gameObject.transform.position.x + randomX, gameObject.transform.position.y - 3.5f, gameObject.transform.position.z + randomZ);
     }
 
+    private void Burst()
+    {
+        bossBurst.Play();
+    }
+
     public void Tentacle()
     {
         tentacles--;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health = health - amount;
+        bossHPSlider.value = health;
     }
 }

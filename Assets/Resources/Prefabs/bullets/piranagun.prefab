@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 731192419470141388}
   m_Layer: 0
   m_Name: piranagun
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,13 +40,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731192419470141363}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -168,8 +168,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 8
-      minScalar: 5
+      scalar: 25
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -666,7 +666,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 0, z: 90}
     m_Scale: {x: 0, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3729,14 +3729,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 100
     maxKillSpeed: 10000
-    radiusScale: 0.02
+    radiusScale: 0.04
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

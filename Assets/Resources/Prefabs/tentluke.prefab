@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3513612590116030432}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439267692126011989}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5822775943632885690}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666122723048760100}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7673487986706259510}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4346458732183820720}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,9 +196,10 @@ GameObject:
   - component: {fileID: 6113377571374923639}
   - component: {fileID: 5586250532366199737}
   - component: {fileID: 412314223281082510}
-  m_Layer: 0
+  - component: {fileID: 136575378374287539}
+  m_Layer: 1
   m_Name: tentluke
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,7 +228,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6889597233110721997}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 1827226128182048838, guid: f60e6dd8506317c4baaccc5103444aad,
     type: 3}
@@ -249,8 +250,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7448828006d67d48a60ed11b8543336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 5
   bullet: {fileID: 5881639773658734502}
+--- !u!65 &136575378374287539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889597233110721997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015435769, y: 0.14979012, z: 0.015715044}
+  m_Center: {x: -0.00046398077, y: 0.067474715, z: 0.0010232836}
 --- !u!1 &7433744707832280319
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6585455801249921781}
   - component: {fileID: 1760012636060412233}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8541949858022188329}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,12 +395,12 @@ PrefabInstance:
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0009
       objectReference: {fileID: 0}
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0174
       objectReference: {fileID: 0}
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
@@ -396,22 +410,22 @@ PrefabInstance:
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.7065131
       objectReference: {fileID: 0}
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.028969299
       objectReference: {fileID: 0}
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.028969299
       objectReference: {fileID: 0}
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7065131
       objectReference: {fileID: 0}
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
@@ -431,7 +445,7 @@ PrefabInstance:
     - target: {fileID: 370387113068373334, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -4.696
       objectReference: {fileID: 0}
     - target: {fileID: 2508324405244508551, guid: 92b45b580de075741b16179433f979d8,
         type: 3}
@@ -442,6 +456,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508324405244508551, guid: 92b45b580de075741b16179433f979d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971042643442187227, guid: 92b45b580de075741b16179433f979d8,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b45b580de075741b16179433f979d8, type: 3}

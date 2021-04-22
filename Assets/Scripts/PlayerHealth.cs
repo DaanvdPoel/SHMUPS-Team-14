@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
 
-    [SerializeField] private int maxHealth;
+    [SerializeField] private float maxHealth;
     [SerializeField] private Slider slider;
+    [SerializeField] private float healthRegainerationAmount;
+    [SerializeField] private float timeBetweenHealthRegaineration;
+    [SerializeField] private GameManager gameManager;
+    private float time;
+    private float currentHealth;
 
-    private int healthCurrent;
 
 
     void Start()
@@ -18,27 +22,42 @@ public class PlayerHealth : MonoBehaviour
         slider.maxValue = maxHealth;
         slider.value = slider.maxValue;
     }
-    public void ResetHealth()
-    {
-        healthCurrent = maxHealth;
-    }
 
-    public void TakeDamage(int damageAmount)
+    private void Update()
     {
-        healthCurrent -= damageAmount;
-        slider.value = healthCurrent;
-
-        if (healthCurrent <= 0)
+        if(currentHealth < maxHealth)
         {
-            Destroy(gameObject);
+            time = time + Time.deltaTime;
+        }
+
+        if(time >= timeBetweenHealthRegaineration)
+        {
+             Heal(healthRegainerationAmount);
+            time = 0;
         }
     }
 
-    public void Heal(int healAmount)
+    public void ResetHealth()
     {
-        healthCurrent += healAmount;
-        slider.value = healthCurrent;
-        if (healthCurrent > maxHealth)
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(float damageAmount)
+    {
+        currentHealth -= damageAmount;
+        slider.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            gameManager.PlayerDied();
+        }
+    }
+
+    public void Heal(float healAmount)
+    {
+        currentHealth += healAmount;
+        slider.value = currentHealth;
+        if (currentHealth > maxHealth)
         {
             ResetHealth();
         }
@@ -48,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.CompareTag("Tentacle"))
         {
-            TakeDamage(3);
+            TakeDamage(15);
         }
     }
 

@@ -12,17 +12,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bossTimer;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject bossHealthbarUI;
+    [SerializeField] private GameObject[] enemySpawners;
 
     [Header("UI screens")]
     [SerializeField] private GameObject playerDiedScreen;
-    [SerializeField] private GameObject playerNextLevelScreen;
-    [SerializeField] private GameObject playerWinScreen;
     [SerializeField] private GameObject fadein;
     [SerializeField] private Slider progressbar;
 
     [Header("References")]
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private MapManager mapManager;
+
 
     private void Start()
     {
@@ -51,8 +51,15 @@ public class GameManager : MonoBehaviour
         {
             mapManager.bossFight = true;
             boss.SetActive(true);
+            bossHealthbarUI.SetActive(true);
             audioManager.bossFightMusic = true;
             audioManager.PlayBossFightMusic();
+
+            for (int i = 0; i < enemySpawners.Length; i++)
+            {
+               Destroy(enemySpawners[i]);
+            }
+
         }else if(boss == null)
         {
             fadein.SetActive(true);
@@ -68,5 +75,23 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void Win()
+    {
+        fadein.SetActive(true);
+        Invoke("LoadNextLevel", 5f);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void PlayerDied()
+    {
+        playerDiedScreen.SetActive(true);
+        audioManager.PlayPlayerSound(3);
+        Invoke("ReloadScene", 5f);
     }
 }

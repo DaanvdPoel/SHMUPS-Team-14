@@ -81,11 +81,15 @@ public class EnemyScriptLuke : MonoBehaviour
 
     private void Shoot()
     {
-        if(attackSound >-0)
+        if (bullet != null)
         {
-            audioManager.PlaySound(attackSound);
+
+            if (attackSound > -0)
+            {
+                audioManager.PlaySound(attackSound);
+            }
+            bullet.Play();
         }
-        bullet.Play();
 
         //enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         //enemyRot = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);

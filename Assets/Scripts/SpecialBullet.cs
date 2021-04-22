@@ -9,6 +9,13 @@ public class SpecialBullet : MonoBehaviour
     private GameObject target;
     [SerializeField] private float speed;
     [SerializeField] private float despawnTimer;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int attackSound;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Start()
     {
@@ -31,12 +38,22 @@ public class SpecialBullet : MonoBehaviour
 
         if (despawnTimer <= 0)
         {
+            audioManager.PlaySound(attackSound);
+
             Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        audioManager.PlaySound(attackSound);
+        Destroy(gameObject);
+
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        audioManager.PlaySound(attackSound);
         Destroy(gameObject);
     }
 }

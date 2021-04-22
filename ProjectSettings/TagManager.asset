@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - FarTarget
   - SpawnerTarget
+  - Boss
+  - BossHealth
   layers:
   - Default
   - TransparentFX

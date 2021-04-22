@@ -30,7 +30,7 @@ public class BabyCannon : MonoBehaviour
     private void Shoot()
     {
         enemyPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        enemyRot = new Quaternion(0, 0 + offset, 0, 0);
+        enemyRot = new Quaternion(0, -90 + offset, 0, 0);
         Instantiate(bullet, enemyPos, enemyRot);
         shootTimer = 5;
     }

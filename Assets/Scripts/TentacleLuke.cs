@@ -18,6 +18,7 @@ public class TentacleLuke : MonoBehaviour
     {
         boss = GameObject.FindGameObjectWithTag("Boss");
         shootTimer = 5;
+        bullet.Play();
     }
 
     void Update()
@@ -35,13 +36,14 @@ public class TentacleLuke : MonoBehaviour
         if (health <= 0)
         {
             boss.GetComponent<BossLuke>().Tentacle();
+            boss.GetComponent<BossLuke>().TakeDamage(100);
             Destroy(gameObject);
         }
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Bullet"))
+        if (!other.CompareTag("Bullet"))
         {
             health--;
         }
@@ -54,8 +56,8 @@ public class TentacleLuke : MonoBehaviour
         //Instantiate(bullet, enemyPos, enemyRot);
         //shootTimer = 5;
 
-        bullet.Play();
+        //bullet.Play();
 
-        Debug.Log("pew");
+        //Debug.Log("pew");
     }
 }
