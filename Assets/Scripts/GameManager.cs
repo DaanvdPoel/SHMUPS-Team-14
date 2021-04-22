@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,16 +18,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerNextLevelScreen;
     [SerializeField] private GameObject playerWinScreen;
     [SerializeField] private GameObject fadein;
+    [SerializeField] private Slider progressbar;
 
     [Header("References")]
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private MapManager mapManager;
 
+    private void Start()
+    {
+        progressbar.maxValue = bossTimer;
+    }
 
     void Update()
     {
         if (bossSpawned == false)
         {
+            progressbar.value = bossTime;
             bossTime = bossTime + Time.deltaTime;
         }
 

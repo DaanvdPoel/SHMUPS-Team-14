@@ -59,4 +59,12 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(10);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(10);
+        }
+    }
 }
