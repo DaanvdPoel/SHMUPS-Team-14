@@ -25,6 +25,7 @@ public class BossLuke : MonoBehaviour
     private Vector3 warnPos;
     private Vector3 areaPos;
     private Quaternion rotation;
+    private GameManagerLuke gameManager;
 
     [SerializeField] private bool invert;
 
@@ -34,6 +35,7 @@ public class BossLuke : MonoBehaviour
         summonTimer = 5;
         areaTimer = 7;
         tentacles = 0;
+        gameManager = FindObjectOfType<GameManagerLuke>();
     }
 
     void Update()
@@ -74,6 +76,7 @@ public class BossLuke : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            gameManager.Win();
         }
     }
 

@@ -7,13 +7,14 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private int maxHealth;
 
-
+    private GameManagerLuke gameManager;
     private int healthCurrent;
 
 
     void Start()
     {
         ResetHealth();
+        gameManager = FindObjectOfType<GameManagerLuke>();
     }
     public void ResetHealth()
     {
@@ -26,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (healthCurrent <= 0)
         {
-            Destroy(gameObject);
+            gameManager.Restart();
         }
     }
 
